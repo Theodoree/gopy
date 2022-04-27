@@ -649,7 +649,7 @@ func (g *pyGen) genPyWrapPreamble() {
 		impgenstr += fmt.Sprintf("from %s import go\n", g.cfg.Name)
 	default:
 		pkg := g.cfg.Name
-		if g.cfg.PkgPrefix != "" {
+		if g.cfg.PkgPrefix != "" && g.cfg.PkgPrefix != "." {
 			pkg = g.cfg.PkgPrefix + "." + pkg
 		}
 		for _, name := range impgenNames {
